@@ -1,0 +1,89 @@
+{
+  "final_scene": "urban architecture",
+  "final_scene_confidence": 0.958,
+  "subject_summary": "highly textured manufactured structure",
+  "organic_integration": "none",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.0,
+      "laplacian_variance": 2011.5944,
+      "edge_density": 0.130835,
+      "brightness_mean": 103.7257,
+      "contrast_std": 64.4198,
+      "hist_entropy": 7.539387,
+      "hist_peakiness": 0.02625417,
+      "equalize_diff_energy": 24.975133,
+      "edge_drop_mean_blur": 0.074073,
+      "edge_drop_median_blur": 0.062071,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.046312,
+      "edge_density_by_sigma": {
+        "1.0": 0.046312,
+        "1.5": 0.023304,
+        "2.0": 0.012033,
+        "2.5": 0.008865,
+        "3.0": 0.004954
+      },
+      "green_component_count": 0,
+      "green_component_areas_top5": [],
+      "green_small_component_ratio": 0.0
+    },
+    "clip": {
+      "primary_scene": "urban architecture",
+      "confidence": 0.958,
+      "top_k": [
+        {
+          "label": "urban architecture",
+          "confidence": 0.9580000042915344
+        },
+        {
+          "label": "night city",
+          "confidence": 0.03371359035372734
+        },
+        {
+          "label": "abstract art",
+          "confidence": 0.002832120517268777
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "traffic light",
+          "confidence": 0.276141,
+          "box_xyxy": [
+            767.43,
+            402.65,
+            799.61,
+            442.17
+          ]
+        }
+      ],
+      "label_counts": {
+        "traffic light": 1
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_coverage_percentage==0.0 -> organic_integration none",
+    "rule: urban architecture + high texture/edges"
+  ]
+}

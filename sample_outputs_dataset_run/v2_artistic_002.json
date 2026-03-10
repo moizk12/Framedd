@@ -1,0 +1,120 @@
+{
+  "final_scene": "portrait photo",
+  "final_scene_confidence": 0.591744,
+  "subject_summary": "portrait style photo",
+  "organic_integration": "some",
+  "texture_statement": "medium texture",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.02,
+      "laplacian_variance": 281.147,
+      "edge_density": 0.048135,
+      "brightness_mean": 96.0672,
+      "contrast_std": 43.5456,
+      "hist_entropy": 6.757977,
+      "hist_peakiness": 0.10425208,
+      "equalize_diff_energy": 40.898767,
+      "edge_drop_mean_blur": 0.021994,
+      "edge_drop_median_blur": 0.013398,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.02185,
+      "edge_density_by_sigma": {
+        "1.0": 0.02185,
+        "1.5": 0.011746,
+        "2.0": 0.004896,
+        "2.5": 0.001065,
+        "3.0": 0.000358
+      },
+      "green_component_count": 1,
+      "green_component_areas_top5": [
+        17
+      ],
+      "green_small_component_ratio": 1.0
+    },
+    "clip": {
+      "primary_scene": "portrait photo",
+      "confidence": 0.591744,
+      "top_k": [
+        {
+          "label": "portrait photo",
+          "confidence": 0.5917436480522156
+        },
+        {
+          "label": "indoor room",
+          "confidence": 0.0905580148100853
+        },
+        {
+          "label": "urban architecture",
+          "confidence": 0.06730663031339645
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "book",
+          "confidence": 0.714866,
+          "box_xyxy": [
+            65.41,
+            370.19,
+            279.66,
+            524.64
+          ]
+        },
+        {
+          "label": "book",
+          "confidence": 0.669612,
+          "box_xyxy": [
+            203.65,
+            282.91,
+            433.41,
+            426.64
+          ]
+        },
+        {
+          "label": "suitcase",
+          "confidence": 0.647847,
+          "box_xyxy": [
+            125.86,
+            0.0,
+            374.43,
+            198.64
+          ]
+        },
+        {
+          "label": "book",
+          "confidence": 0.511806,
+          "box_xyxy": [
+            331.63,
+            427.56,
+            514.13,
+            560.47
+          ]
+        }
+      ],
+      "label_counts": {
+        "book": 3,
+        "suitcase": 1
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)"
+  ]
+}

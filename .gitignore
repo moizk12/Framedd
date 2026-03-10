@@ -4,11 +4,6 @@ __pycache__/
 *.pyd
 .Python
 
-# Generated outputs / presentation artifacts
-sample_outputs*/
-failure_cases/fail_*.jpg
-failure_cases/make_failures.py
-
 # Local model weights / caches (if they appear here)
 *.pt
 

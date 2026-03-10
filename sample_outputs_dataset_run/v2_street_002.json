@@ -1,0 +1,89 @@
+{
+  "final_scene": "night city",
+  "final_scene_confidence": 0.641338,
+  "subject_summary": "nighttime city scene",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.0277,
+      "laplacian_variance": 1535.1798,
+      "edge_density": 0.09324,
+      "brightness_mean": 135.785,
+      "contrast_std": 48.8264,
+      "hist_entropy": 6.844259,
+      "hist_peakiness": 0.03851875,
+      "equalize_diff_energy": 31.618485,
+      "edge_drop_mean_blur": 0.067058,
+      "edge_drop_median_blur": 0.06164,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.020967,
+      "edge_density_by_sigma": {
+        "1.0": 0.020967,
+        "1.5": 0.009958,
+        "2.0": 0.004902,
+        "2.5": 0.001425,
+        "3.0": 0.0
+      },
+      "green_component_count": 1,
+      "green_component_areas_top5": [
+        46
+      ],
+      "green_small_component_ratio": 1.0
+    },
+    "clip": {
+      "primary_scene": "night city",
+      "confidence": 0.641338,
+      "top_k": [
+        {
+          "label": "night city",
+          "confidence": 0.6413379311561584
+        },
+        {
+          "label": "urban architecture",
+          "confidence": 0.3361407220363617
+        },
+        {
+          "label": "mountain landscape",
+          "confidence": 0.005808982066810131
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "boat",
+          "confidence": 0.269688,
+          "box_xyxy": [
+            29.49,
+            524.61,
+            40.13,
+            537.35
+          ]
+        }
+      ],
+      "label_counts": {
+        "boat": 1
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)"
+  ]
+}

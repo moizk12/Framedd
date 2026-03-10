@@ -1,0 +1,147 @@
+{
+  "final_scene": "portrait photo",
+  "final_scene_confidence": 0.549612,
+  "subject_summary": "portrait style photo",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 2.4952,
+      "laplacian_variance": 815.7434,
+      "edge_density": 0.05959,
+      "brightness_mean": 176.0484,
+      "contrast_std": 71.0523,
+      "hist_entropy": 6.865174,
+      "hist_peakiness": 0.08015417,
+      "equalize_diff_energy": 46.200354,
+      "edge_drop_mean_blur": 0.021056,
+      "edge_drop_median_blur": 0.017363,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.032981,
+      "edge_density_by_sigma": {
+        "1.0": 0.032981,
+        "1.5": 0.01371,
+        "2.0": 0.006585,
+        "2.5": 0.003977,
+        "3.0": 0.000788
+      },
+      "green_component_count": 65,
+      "green_component_areas_top5": [
+        1974,
+        1964,
+        1921,
+        1601,
+        973
+      ],
+      "green_small_component_ratio": 0.907692
+    },
+    "clip": {
+      "primary_scene": "portrait photo",
+      "confidence": 0.549612,
+      "top_k": [
+        {
+          "label": "portrait photo",
+          "confidence": 0.549611508846283
+        },
+        {
+          "label": "mountain landscape",
+          "confidence": 0.14001792669296265
+        },
+        {
+          "label": "car road",
+          "confidence": 0.09100129455327988
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "person",
+          "confidence": 0.752818,
+          "box_xyxy": [
+            434.64,
+            144.6,
+            584.45,
+            526.3
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.690214,
+          "box_xyxy": [
+            242.32,
+            161.2,
+            403.51,
+            536.51
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.647954,
+          "box_xyxy": [
+            337.7,
+            159.98,
+            508.56,
+            539.22
+          ]
+        },
+        {
+          "label": "cow",
+          "confidence": 0.284049,
+          "box_xyxy": [
+            0.0,
+            498.49,
+            43.13,
+            572.56
+          ]
+        },
+        {
+          "label": "cow",
+          "confidence": 0.277531,
+          "box_xyxy": [
+            0.0,
+            489.65,
+            111.34,
+            574.69
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.253782,
+          "box_xyxy": [
+            303.44,
+            167.04,
+            410.76,
+            535.2
+          ]
+        }
+      ],
+      "label_counts": {
+        "person": 4,
+        "cow": 2
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_component_count high -> fragmented organic regions / clutter signal",
+    "rule: green_small_component_ratio high -> many small organic regions (high fragmentation)",
+    "yolo: person detected"
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "final_scene": "beach ocean",
+  "final_scene_confidence": 0.390183,
+  "subject_summary": "natural landscape scene",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.0317,
+      "laplacian_variance": 571.9514,
+      "edge_density": 0.054902,
+      "brightness_mean": 172.1915,
+      "contrast_std": 64.4375,
+      "hist_entropy": 7.439326,
+      "hist_peakiness": 0.05856042,
+      "equalize_diff_energy": 43.781204,
+      "edge_drop_mean_blur": 0.021052,
+      "edge_drop_median_blur": 0.014342,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.030369,
+      "edge_density_by_sigma": {
+        "1.0": 0.030369,
+        "1.5": 0.019767,
+        "2.0": 0.013552,
+        "2.5": 0.008815,
+        "3.0": 0.005306
+      },
+      "green_component_count": 2,
+      "green_component_areas_top5": [
+        38,
+        30
+      ],
+      "green_small_component_ratio": 1.0
+    },
+    "clip": {
+      "primary_scene": "beach ocean",
+      "confidence": 0.390183,
+      "top_k": [
+        {
+          "label": "beach ocean",
+          "confidence": 0.3901832103729248
+        },
+        {
+          "label": "portrait photo",
+          "confidence": 0.1792864203453064
+        },
+        {
+          "label": "mountain landscape",
+          "confidence": 0.13281875848770142
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "person",
+          "confidence": 0.870913,
+          "box_xyxy": [
+            0.69,
+            283.84,
+            317.83,
+            580.76
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.869963,
+          "box_xyxy": [
+            647.34,
+            305.51,
+            799.86,
+            588.5
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.70087,
+          "box_xyxy": [
+            409.31,
+            310.77,
+            792.63,
+            579.73
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.364846,
+          "box_xyxy": [
+            175.02,
+            295.19,
+            430.7,
+            578.77
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.35691,
+          "box_xyxy": [
+            175.61,
+            306.58,
+            341.27,
+            577.48
+          ]
+        },
+        {
+          "label": "backpack",
+          "confidence": 0.286388,
+          "box_xyxy": [
+            437.2,
+            432.16,
+            552.57,
+            583.3
+          ]
+        }
+      ],
+      "label_counts": {
+        "person": 5,
+        "backpack": 1
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "yolo: person detected"
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "final_scene": "urban architecture",
+  "final_scene_confidence": 0.834166,
+  "subject_summary": "highly textured manufactured structure",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.0579,
+      "laplacian_variance": 961.2682,
+      "edge_density": 0.128871,
+      "brightness_mean": 134.293,
+      "contrast_std": 75.6064,
+      "hist_entropy": 7.796741,
+      "hist_peakiness": 0.02014375,
+      "equalize_diff_energy": 10.554529,
+      "edge_drop_mean_blur": 0.067754,
+      "edge_drop_median_blur": 0.056127,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.047658,
+      "edge_density_by_sigma": {
+        "1.0": 0.047658,
+        "1.5": 0.017233,
+        "2.0": 0.00654,
+        "2.5": 0.00331,
+        "3.0": 0.00126
+      },
+      "green_component_count": 3,
+      "green_component_areas_top5": [
+        141,
+        75,
+        17
+      ],
+      "green_small_component_ratio": 1.0
+    },
+    "clip": {
+      "primary_scene": "urban architecture",
+      "confidence": 0.834166,
+      "top_k": [
+        {
+          "label": "urban architecture",
+          "confidence": 0.8341658711433411
+        },
+        {
+          "label": "street scene",
+          "confidence": 0.07291655242443085
+        },
+        {
+          "label": "night city",
+          "confidence": 0.05131660774350166
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "person",
+          "confidence": 0.292829,
+          "box_xyxy": [
+            0.0,
+            419.06,
+            33.04,
+            458.35
+          ]
+        }
+      ],
+      "label_counts": {
+        "person": 1
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "yolo: person detected",
+    "rule: urban architecture + high texture/edges"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "final_scene": "abstract art",
+  "final_scene_confidence": 0.913797,
+  "subject_summary": "abstract / artistic scene",
+  "organic_integration": "present",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 8.7881,
+      "laplacian_variance": 1044.0112,
+      "edge_density": 0.136996,
+      "brightness_mean": 122.4752,
+      "contrast_std": 55.7202,
+      "hist_entropy": 7.582033,
+      "hist_peakiness": 0.01376042,
+      "equalize_diff_energy": 18.082323,
+      "edge_drop_mean_blur": 0.085438,
+      "edge_drop_median_blur": 0.07216,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.042285,
+      "edge_density_by_sigma": {
+        "1.0": 0.042285,
+        "1.5": 0.019365,
+        "2.0": 0.010988,
+        "2.5": 0.004471,
+        "3.0": 0.000406
+      },
+      "green_component_count": 44,
+      "green_component_areas_top5": [
+        32054,
+        1576,
+        1557,
+        1433,
+        652
+      ],
+      "green_small_component_ratio": 0.840909
+    },
+    "clip": {
+      "primary_scene": "abstract art",
+      "confidence": 0.913797,
+      "top_k": [
+        {
+          "label": "abstract art",
+          "confidence": 0.9137967228889465
+        },
+        {
+          "label": "street scene",
+          "confidence": 0.027824489399790764
+        },
+        {
+          "label": "car road",
+          "confidence": 0.020590389147400856
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [],
+      "label_counts": {},
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_component_count high -> fragmented organic regions / clutter signal",
+    "rule: green_small_component_ratio high -> many small organic regions (high fragmentation)"
+  ]
+}

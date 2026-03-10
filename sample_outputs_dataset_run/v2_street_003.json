@@ -1,0 +1,79 @@
+{
+  "final_scene": "urban architecture",
+  "final_scene_confidence": 0.680852,
+  "subject_summary": "highly textured manufactured structure",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.1054,
+      "laplacian_variance": 3060.7219,
+      "edge_density": 0.18034,
+      "brightness_mean": 115.9168,
+      "contrast_std": 63.0264,
+      "hist_entropy": 7.758794,
+      "hist_peakiness": 0.015475,
+      "equalize_diff_energy": 15.668785,
+      "edge_drop_mean_blur": 0.074379,
+      "edge_drop_median_blur": 0.060498,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.090865,
+      "edge_density_by_sigma": {
+        "1.0": 0.090865,
+        "1.5": 0.032198,
+        "2.0": 0.006788,
+        "2.5": 0.000338,
+        "3.0": 0.0
+      },
+      "green_component_count": 3,
+      "green_component_areas_top5": [
+        83,
+        32,
+        17
+      ],
+      "green_small_component_ratio": 1.0
+    },
+    "clip": {
+      "primary_scene": "urban architecture",
+      "confidence": 0.680852,
+      "top_k": [
+        {
+          "label": "urban architecture",
+          "confidence": 0.6808520555496216
+        },
+        {
+          "label": "night city",
+          "confidence": 0.2978827953338623
+        },
+        {
+          "label": "car road",
+          "confidence": 0.007238300517201424
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [],
+      "label_counts": {},
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: urban architecture + high texture/edges"
+  ]
+}

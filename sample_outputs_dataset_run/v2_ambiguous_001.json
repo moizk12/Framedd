@@ -1,0 +1,75 @@
+{
+  "final_scene": "mountain landscape",
+  "final_scene_confidence": 0.957557,
+  "subject_summary": "natural landscape scene",
+  "organic_integration": "none",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.0,
+      "laplacian_variance": 877.8204,
+      "edge_density": 0.052817,
+      "brightness_mean": 71.09,
+      "contrast_std": 56.572,
+      "hist_entropy": 7.239889,
+      "hist_peakiness": 0.02847292,
+      "equalize_diff_energy": 58.112921,
+      "edge_drop_mean_blur": 0.033194,
+      "edge_drop_median_blur": 0.03186,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.015871,
+      "edge_density_by_sigma": {
+        "1.0": 0.015871,
+        "1.5": 0.004915,
+        "2.0": 0.002269,
+        "2.5": 0.002065,
+        "3.0": 0.001185
+      },
+      "green_component_count": 0,
+      "green_component_areas_top5": [],
+      "green_small_component_ratio": 0.0
+    },
+    "clip": {
+      "primary_scene": "mountain landscape",
+      "confidence": 0.957557,
+      "top_k": [
+        {
+          "label": "mountain landscape",
+          "confidence": 0.9575565457344055
+        },
+        {
+          "label": "night city",
+          "confidence": 0.02942819893360138
+        },
+        {
+          "label": "abstract art",
+          "confidence": 0.004330513067543507
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [],
+      "label_counts": {},
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_coverage_percentage==0.0 -> organic_integration none"
+  ]
+}

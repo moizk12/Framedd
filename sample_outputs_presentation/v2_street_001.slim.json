@@ -1,0 +1,27 @@
+{
+  "final_scene": "car road",
+  "final_scene_confidence": 0.566074,
+  "subject_summary": "not sure",
+  "path_a": {
+    "green_coverage_percentage": 0.0788,
+    "laplacian_variance": 1947.8828,
+    "edge_density_tuned": 0.073435,
+    "brightness_mean": 101.7203,
+    "contrast_std": 59.9126,
+    "hist_entropy": 7.414975,
+    "equalize_diff_energy": 29.430448,
+    "green_component_count": 4,
+    "green_small_component_ratio": 1.0
+  },
+  "semantics": {
+    "clip_top3": {
+      "car road": 0.5660738348960876,
+      "street scene": 0.25859224796295166,
+      "urban architecture": 0.14001666009426117
+    },
+    "yolo_label_counts": {
+      "car": 7,
+      "traffic light": 3
+    }
+  }
+}

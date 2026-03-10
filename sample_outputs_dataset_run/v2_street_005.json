@@ -1,0 +1,79 @@
+{
+  "final_scene": "night city",
+  "final_scene_confidence": 0.960883,
+  "subject_summary": "nighttime city scene",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.1679,
+      "laplacian_variance": 2504.8076,
+      "edge_density": 0.134902,
+      "brightness_mean": 53.2382,
+      "contrast_std": 42.2808,
+      "hist_entropy": 6.829881,
+      "hist_peakiness": 0.04511458,
+      "equalize_diff_energy": 71.564156,
+      "edge_drop_mean_blur": 0.035967,
+      "edge_drop_median_blur": 0.03135,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.088446,
+      "edge_density_by_sigma": {
+        "1.0": 0.088446,
+        "1.5": 0.042829,
+        "2.0": 0.01509,
+        "2.5": 0.003413,
+        "3.0": 0.000631
+      },
+      "green_component_count": 4,
+      "green_component_areas_top5": [
+        112,
+        82,
+        22,
+        17
+      ],
+      "green_small_component_ratio": 1.0
+    },
+    "clip": {
+      "primary_scene": "night city",
+      "confidence": 0.960883,
+      "top_k": [
+        {
+          "label": "night city",
+          "confidence": 0.960883378982544
+        },
+        {
+          "label": "urban architecture",
+          "confidence": 0.03532760590314865
+        },
+        {
+          "label": "mountain landscape",
+          "confidence": 0.002380938036367297
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [],
+      "label_counts": {},
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)"
+  ]
+}

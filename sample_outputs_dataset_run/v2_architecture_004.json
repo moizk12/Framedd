@@ -1,0 +1,75 @@
+{
+  "final_scene": "urban architecture",
+  "final_scene_confidence": 0.957721,
+  "subject_summary": "highly textured manufactured structure",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.004,
+      "laplacian_variance": 674.18,
+      "edge_density": 0.045677,
+      "brightness_mean": 107.2814,
+      "contrast_std": 80.698,
+      "hist_entropy": 7.489559,
+      "hist_peakiness": 0.0180375,
+      "equalize_diff_energy": 21.574198,
+      "edge_drop_mean_blur": 0.015925,
+      "edge_drop_median_blur": 0.012927,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.027515,
+      "edge_density_by_sigma": {
+        "1.0": 0.027515,
+        "1.5": 0.01994,
+        "2.0": 0.011217,
+        "2.5": 0.00641,
+        "3.0": 0.003356
+      },
+      "green_component_count": 0,
+      "green_component_areas_top5": [],
+      "green_small_component_ratio": 0.0
+    },
+    "clip": {
+      "primary_scene": "urban architecture",
+      "confidence": 0.957721,
+      "top_k": [
+        {
+          "label": "urban architecture",
+          "confidence": 0.9577211737632751
+        },
+        {
+          "label": "night city",
+          "confidence": 0.018015198409557343
+        },
+        {
+          "label": "street scene",
+          "confidence": 0.015741871669888496
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [],
+      "label_counts": {},
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: urban architecture + high texture/edges"
+  ]
+}

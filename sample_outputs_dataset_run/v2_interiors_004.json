@@ -1,0 +1,126 @@
+{
+  "final_scene": "indoor room",
+  "final_scene_confidence": 0.98341,
+  "subject_summary": "indoor environment / room",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.8981,
+      "laplacian_variance": 2759.3818,
+      "edge_density": 0.135523,
+      "brightness_mean": 157.9746,
+      "contrast_std": 58.1221,
+      "hist_entropy": 7.703165,
+      "hist_peakiness": 0.011175,
+      "equalize_diff_energy": 31.46685,
+      "edge_drop_mean_blur": 0.082675,
+      "edge_drop_median_blur": 0.065527,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.042894,
+      "edge_density_by_sigma": {
+        "1.0": 0.042894,
+        "1.5": 0.016506,
+        "2.0": 0.006931,
+        "2.5": 0.002479,
+        "3.0": 0.000542
+      },
+      "green_component_count": 10,
+      "green_component_areas_top5": [
+        2032,
+        1614,
+        346,
+        129,
+        81
+      ],
+      "green_small_component_ratio": 0.8
+    },
+    "clip": {
+      "primary_scene": "indoor room",
+      "confidence": 0.98341,
+      "top_k": [
+        {
+          "label": "indoor room",
+          "confidence": 0.9834098815917969
+        },
+        {
+          "label": "abstract art",
+          "confidence": 0.005299136508256197
+        },
+        {
+          "label": "urban architecture",
+          "confidence": 0.0048599326983094215
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "bed",
+          "confidence": 0.806014,
+          "box_xyxy": [
+            128.35,
+            107.14,
+            795.45,
+            597.41
+          ]
+        },
+        {
+          "label": "bed",
+          "confidence": 0.439309,
+          "box_xyxy": [
+            428.53,
+            347.42,
+            798.82,
+            598.69
+          ]
+        },
+        {
+          "label": "potted plant",
+          "confidence": 0.415082,
+          "box_xyxy": [
+            566.36,
+            176.27,
+            601.07,
+            210.19
+          ]
+        },
+        {
+          "label": "wine glass",
+          "confidence": 0.384912,
+          "box_xyxy": [
+            53.73,
+            170.15,
+            102.04,
+            256.41
+          ]
+        }
+      ],
+      "label_counts": {
+        "bed": 2,
+        "potted plant": 1,
+        "wine glass": 1
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_small_component_ratio high -> many small organic regions (high fragmentation)"
+  ]
+}

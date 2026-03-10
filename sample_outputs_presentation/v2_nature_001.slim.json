@@ -1,0 +1,24 @@
+{
+  "final_scene": "forest greenery",
+  "final_scene_confidence": 0.966823,
+  "subject_summary": "natural landscape scene",
+  "path_a": {
+    "green_coverage_percentage": 16.5831,
+    "laplacian_variance": 1918.0092,
+    "edge_density_tuned": 0.079948,
+    "brightness_mean": 72.6376,
+    "contrast_std": 54.4795,
+    "hist_entropy": 7.439425,
+    "equalize_diff_energy": 55.852698,
+    "green_component_count": 152,
+    "green_small_component_ratio": 0.881579
+  },
+  "semantics": {
+    "clip_top3": {
+      "forest greenery": 0.9668234586715698,
+      "car road": 0.0253779124468565,
+      "mountain landscape": 0.0067866090685129166
+    },
+    "yolo_label_counts": {}
+  }
+}

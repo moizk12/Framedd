@@ -1,0 +1,82 @@
+{
+  "final_scene": "mountain landscape",
+  "final_scene_confidence": 0.970508,
+  "subject_summary": "natural landscape scene",
+  "organic_integration": "present",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 11.2154,
+      "laplacian_variance": 423.0788,
+      "edge_density": 0.0661,
+      "brightness_mean": 113.6014,
+      "contrast_std": 50.2063,
+      "hist_entropy": 7.609927,
+      "hist_peakiness": 0.00913333,
+      "equalize_diff_energy": 26.473662,
+      "edge_drop_mean_blur": 0.050835,
+      "edge_drop_median_blur": 0.042025,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.009985,
+      "edge_density_by_sigma": {
+        "1.0": 0.009985,
+        "1.5": 0.001333,
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "green_component_count": 91,
+      "green_component_areas_top5": [
+        18152,
+        12845,
+        5316,
+        4819,
+        3759
+      ],
+      "green_small_component_ratio": 0.912088
+    },
+    "clip": {
+      "primary_scene": "mountain landscape",
+      "confidence": 0.970508,
+      "top_k": [
+        {
+          "label": "mountain landscape",
+          "confidence": 0.9705082178115845
+        },
+        {
+          "label": "car road",
+          "confidence": 0.02737991139292717
+        },
+        {
+          "label": "forest greenery",
+          "confidence": 0.0013166441349312663
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [],
+      "label_counts": {},
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_component_count high -> fragmented organic regions / clutter signal",
+    "rule: green_small_component_ratio high -> many small organic regions (high fragmentation)"
+  ]
+}

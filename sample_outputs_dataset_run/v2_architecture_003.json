@@ -1,0 +1,126 @@
+{
+  "final_scene": "indoor room",
+  "final_scene_confidence": 0.706939,
+  "subject_summary": "indoor environment / room",
+  "organic_integration": "present",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 5.5652,
+      "laplacian_variance": 2979.4497,
+      "edge_density": 0.172421,
+      "brightness_mean": 84.9791,
+      "contrast_std": 45.5011,
+      "hist_entropy": 7.043327,
+      "hist_peakiness": 0.06293125,
+      "equalize_diff_energy": 47.199815,
+      "edge_drop_mean_blur": 0.084181,
+      "edge_drop_median_blur": 0.061308,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.065244,
+      "edge_density_by_sigma": {
+        "1.0": 0.065244,
+        "1.5": 0.01734,
+        "2.0": 0.003152,
+        "2.5": 0.00031,
+        "3.0": 0.0
+      },
+      "green_component_count": 29,
+      "green_component_areas_top5": [
+        10665,
+        8211,
+        2022,
+        1825,
+        1642
+      ],
+      "green_small_component_ratio": 0.793103
+    },
+    "clip": {
+      "primary_scene": "indoor room",
+      "confidence": 0.706939,
+      "top_k": [
+        {
+          "label": "indoor room",
+          "confidence": 0.7069388031959534
+        },
+        {
+          "label": "abstract art",
+          "confidence": 0.12188874185085297
+        },
+        {
+          "label": "night city",
+          "confidence": 0.09069256484508514
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "person",
+          "confidence": 0.728771,
+          "box_xyxy": [
+            355.91,
+            430.63,
+            466.94,
+            599.54
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.627171,
+          "box_xyxy": [
+            295.57,
+            432.98,
+            391.02,
+            599.56
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.319341,
+          "box_xyxy": [
+            90.64,
+            375.5,
+            146.36,
+            497.18
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.261846,
+          "box_xyxy": [
+            437.52,
+            396.66,
+            612.4,
+            599.35
+          ]
+        }
+      ],
+      "label_counts": {
+        "person": 4
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_component_count high -> fragmented organic regions / clutter signal",
+    "rule: green_small_component_ratio high -> many small organic regions (high fragmentation)",
+    "yolo: person detected"
+  ]
+}

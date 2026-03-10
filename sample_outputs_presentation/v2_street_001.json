@@ -1,0 +1,184 @@
+{
+  "final_scene": "car road",
+  "final_scene_confidence": 0.566074,
+  "subject_summary": "not sure",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.0788,
+      "laplacian_variance": 1947.8828,
+      "edge_density": 0.138569,
+      "brightness_mean": 101.7203,
+      "contrast_std": 59.9126,
+      "hist_entropy": 7.414975,
+      "hist_peakiness": 0.02988125,
+      "equalize_diff_energy": 29.430448,
+      "edge_drop_mean_blur": 0.054054,
+      "edge_drop_median_blur": 0.046123,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.073435,
+      "edge_density_by_sigma": {
+        "1.0": 0.073435,
+        "1.5": 0.035425,
+        "2.0": 0.01415,
+        "2.5": 0.00375,
+        "3.0": 0.000663
+      },
+      "green_component_count": 4,
+      "green_component_areas_top5": [
+        34,
+        26,
+        22,
+        22
+      ],
+      "green_small_component_ratio": 1.0
+    },
+    "clip": {
+      "primary_scene": "car road",
+      "confidence": 0.566074,
+      "top_k": [
+        {
+          "label": "car road",
+          "confidence": 0.5660738348960876
+        },
+        {
+          "label": "street scene",
+          "confidence": 0.25859224796295166
+        },
+        {
+          "label": "urban architecture",
+          "confidence": 0.14001666009426117
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "car",
+          "confidence": 0.827509,
+          "box_xyxy": [
+            437.03,
+            412.42,
+            473.54,
+            442.55
+          ]
+        },
+        {
+          "label": "car",
+          "confidence": 0.766837,
+          "box_xyxy": [
+            374.35,
+            412.54,
+            412.22,
+            441.64
+          ]
+        },
+        {
+          "label": "car",
+          "confidence": 0.759285,
+          "box_xyxy": [
+            680.38,
+            409.03,
+            778.7,
+            475.71
+          ]
+        },
+        {
+          "label": "car",
+          "confidence": 0.724351,
+          "box_xyxy": [
+            774.08,
+            423.07,
+            799.7,
+            488.17
+          ]
+        },
+        {
+          "label": "car",
+          "confidence": 0.665414,
+          "box_xyxy": [
+            278.77,
+            407.12,
+            317.76,
+            444.27
+          ]
+        },
+        {
+          "label": "traffic light",
+          "confidence": 0.650944,
+          "box_xyxy": [
+            157.29,
+            290.41,
+            173.76,
+            322.88
+          ]
+        },
+        {
+          "label": "car",
+          "confidence": 0.632328,
+          "box_xyxy": [
+            632.84,
+            406.82,
+            698.02,
+            464.06
+          ]
+        },
+        {
+          "label": "car",
+          "confidence": 0.598291,
+          "box_xyxy": [
+            550.93,
+            417.23,
+            592.29,
+            444.24
+          ]
+        },
+        {
+          "label": "traffic light",
+          "confidence": 0.569664,
+          "box_xyxy": [
+            538.83,
+            301.01,
+            548.0,
+            326.98
+          ]
+        },
+        {
+          "label": "traffic light",
+          "confidence": 0.534165,
+          "box_xyxy": [
+            298.73,
+            296.19,
+            313.21,
+            326.84
+          ]
+        }
+      ],
+      "label_counts": {
+        "car": 7,
+        "traffic light": 3
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "yolo: car detected"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "final_scene": "abstract art",
+  "final_scene_confidence": 0.451285,
+  "subject_summary": "abstract / artistic scene",
+  "organic_integration": "none",
+  "texture_statement": "low texture (laplacian variance low)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.0,
+      "laplacian_variance": 1.4689,
+      "edge_density": 0.0,
+      "brightness_mean": 96.0418,
+      "contrast_std": 38.9127,
+      "hist_entropy": 6.765087,
+      "hist_peakiness": 0.05092708,
+      "equalize_diff_energy": 42.600444,
+      "edge_drop_mean_blur": 0.0,
+      "edge_drop_median_blur": 0.0,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.0,
+      "edge_density_by_sigma": {
+        "1.0": 0.0,
+        "1.5": 0.0,
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "green_component_count": 0,
+      "green_component_areas_top5": [],
+      "green_small_component_ratio": 0.0
+    },
+    "clip": {
+      "primary_scene": "abstract art",
+      "confidence": 0.451285,
+      "top_k": [
+        {
+          "label": "abstract art",
+          "confidence": 0.4512852728366852
+        },
+        {
+          "label": "indoor room",
+          "confidence": 0.23822692036628723
+        },
+        {
+          "label": "night city",
+          "confidence": 0.08432947844266891
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [],
+      "label_counts": {},
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_coverage_percentage==0.0 -> organic_integration none"
+  ]
+}

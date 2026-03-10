@@ -1,0 +1,87 @@
+{
+  "final_scene": "indoor room",
+  "final_scene_confidence": 0.974782,
+  "subject_summary": "indoor environment / room",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.0073,
+      "laplacian_variance": 540.0215,
+      "edge_density": 0.052667,
+      "brightness_mean": 105.4925,
+      "contrast_std": 48.2637,
+      "hist_entropy": 7.313086,
+      "hist_peakiness": 0.0227375,
+      "equalize_diff_energy": 26.739317,
+      "edge_drop_mean_blur": 0.023933,
+      "edge_drop_median_blur": 0.01595,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.023421,
+      "edge_density_by_sigma": {
+        "1.0": 0.023421,
+        "1.5": 0.013967,
+        "2.0": 0.008358,
+        "2.5": 0.003592,
+        "3.0": 0.001671
+      },
+      "green_component_count": 0,
+      "green_component_areas_top5": [],
+      "green_small_component_ratio": 0.0
+    },
+    "clip": {
+      "primary_scene": "indoor room",
+      "confidence": 0.974782,
+      "top_k": [
+        {
+          "label": "indoor room",
+          "confidence": 0.9747821688652039
+        },
+        {
+          "label": "urban architecture",
+          "confidence": 0.017225751653313637
+        },
+        {
+          "label": "car road",
+          "confidence": 0.005766141694039106
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "bowl",
+          "confidence": 0.457179,
+          "box_xyxy": [
+            173.1,
+            287.09,
+            208.76,
+            299.27
+          ]
+        }
+      ],
+      "label_counts": {
+        "bowl": 1
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)"
+  ]
+}

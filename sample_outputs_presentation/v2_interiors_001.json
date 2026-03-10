@@ -1,0 +1,157 @@
+{
+  "final_scene": "indoor room",
+  "final_scene_confidence": 0.97545,
+  "subject_summary": "indoor environment / room",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 1.245,
+      "laplacian_variance": 422.1533,
+      "edge_density": 0.04154,
+      "brightness_mean": 171.9408,
+      "contrast_std": 64.7467,
+      "hist_entropy": 7.490223,
+      "hist_peakiness": 0.03335625,
+      "equalize_diff_energy": 43.548233,
+      "edge_drop_mean_blur": 0.019942,
+      "edge_drop_median_blur": 0.0147,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.018437,
+      "edge_density_by_sigma": {
+        "1.0": 0.018437,
+        "1.5": 0.010046,
+        "2.0": 0.006848,
+        "2.5": 0.003958,
+        "3.0": 0.002625
+      },
+      "green_component_count": 9,
+      "green_component_areas_top5": [
+        2455,
+        2103,
+        1383,
+        608,
+        217
+      ],
+      "green_small_component_ratio": 0.555556
+    },
+    "clip": {
+      "primary_scene": "indoor room",
+      "confidence": 0.97545,
+      "top_k": [
+        {
+          "label": "indoor room",
+          "confidence": 0.9754496812820435
+        },
+        {
+          "label": "urban architecture",
+          "confidence": 0.02223627269268036
+        },
+        {
+          "label": "portrait photo",
+          "confidence": 0.0007277897675521672
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "potted plant",
+          "confidence": 0.908423,
+          "box_xyxy": [
+            452.89,
+            248.6,
+            546.92,
+            347.33
+          ]
+        },
+        {
+          "label": "couch",
+          "confidence": 0.900398,
+          "box_xyxy": [
+            0.26,
+            331.8,
+            182.03,
+            599.22
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.883943,
+          "box_xyxy": [
+            312.88,
+            300.09,
+            467.14,
+            512.62
+          ]
+        },
+        {
+          "label": "potted plant",
+          "confidence": 0.82126,
+          "box_xyxy": [
+            515.03,
+            283.93,
+            604.7,
+            360.67
+          ]
+        },
+        {
+          "label": "tv",
+          "confidence": 0.669549,
+          "box_xyxy": [
+            711.43,
+            175.85,
+            799.53,
+            385.05
+          ]
+        },
+        {
+          "label": "potted plant",
+          "confidence": 0.564343,
+          "box_xyxy": [
+            309.91,
+            267.48,
+            442.6,
+            333.1
+          ]
+        },
+        {
+          "label": "vase",
+          "confidence": 0.348602,
+          "box_xyxy": [
+            472.83,
+            301.61,
+            519.16,
+            347.33
+          ]
+        }
+      ],
+      "label_counts": {
+        "potted plant": 3,
+        "couch": 1,
+        "chair": 1,
+        "tv": 1,
+        "vase": 1
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)"
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "final_scene": "indoor room",
+  "final_scene_confidence": 0.96039,
+  "subject_summary": "indoor environment / room",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.1475,
+      "laplacian_variance": 462.4651,
+      "edge_density": 0.057127,
+      "brightness_mean": 180.5406,
+      "contrast_std": 51.063,
+      "hist_entropy": 7.347248,
+      "hist_peakiness": 0.01401667,
+      "equalize_diff_energy": 53.027715,
+      "edge_drop_mean_blur": 0.025002,
+      "edge_drop_median_blur": 0.014725,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.028538,
+      "edge_density_by_sigma": {
+        "1.0": 0.028538,
+        "1.5": 0.018373,
+        "2.0": 0.012696,
+        "2.5": 0.008165,
+        "3.0": 0.004796
+      },
+      "green_component_count": 3,
+      "green_component_areas_top5": [
+        59,
+        42,
+        37
+      ],
+      "green_small_component_ratio": 1.0
+    },
+    "clip": {
+      "primary_scene": "indoor room",
+      "confidence": 0.96039,
+      "top_k": [
+        {
+          "label": "indoor room",
+          "confidence": 0.9603903293609619
+        },
+        {
+          "label": "urban architecture",
+          "confidence": 0.03436886519193649
+        },
+        {
+          "label": "abstract art",
+          "confidence": 0.0017670926172286272
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "chair",
+          "confidence": 0.864592,
+          "box_xyxy": [
+            275.46,
+            382.14,
+            522.61,
+            588.7
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.797619,
+          "box_xyxy": [
+            0.23,
+            385.69,
+            181.11,
+            542.38
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.784914,
+          "box_xyxy": [
+            208.78,
+            346.17,
+            365.21,
+            542.21
+          ]
+        },
+        {
+          "label": "couch",
+          "confidence": 0.752201,
+          "box_xyxy": [
+            504.16,
+            354.05,
+            744.15,
+            505.76
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.705794,
+          "box_xyxy": [
+            361.4,
+            353.12,
+            491.37,
+            429.85
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.616743,
+          "box_xyxy": [
+            591.11,
+            529.17,
+            799.47,
+            599.68
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.491238,
+          "box_xyxy": [
+            275.36,
+            340.29,
+            375.2,
+            428.49
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.457563,
+          "box_xyxy": [
+            234.67,
+            345.04,
+            368.95,
+            462.74
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.278811,
+          "box_xyxy": [
+            22.45,
+            309.08,
+            60.56,
+            402.89
+          ]
+        }
+      ],
+      "label_counts": {
+        "chair": 8,
+        "couch": 1
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)"
+  ]
+}

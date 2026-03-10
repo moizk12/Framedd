@@ -1,0 +1,187 @@
+{
+  "final_scene": "indoor room",
+  "final_scene_confidence": 0.984775,
+  "subject_summary": "indoor environment / room",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.5883,
+      "laplacian_variance": 409.2259,
+      "edge_density": 0.051552,
+      "brightness_mean": 161.2046,
+      "contrast_std": 43.6485,
+      "hist_entropy": 7.253487,
+      "hist_peakiness": 0.01794167,
+      "equalize_diff_energy": 41.561135,
+      "edge_drop_mean_blur": 0.020069,
+      "edge_drop_median_blur": 0.014717,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.026442,
+      "edge_density_by_sigma": {
+        "1.0": 0.026442,
+        "1.5": 0.01405,
+        "2.0": 0.006794,
+        "2.5": 0.002242,
+        "3.0": 0.000369
+      },
+      "green_component_count": 13,
+      "green_component_areas_top5": [
+        986,
+        945,
+        304,
+        97,
+        58
+      ],
+      "green_small_component_ratio": 0.846154
+    },
+    "clip": {
+      "primary_scene": "indoor room",
+      "confidence": 0.984775,
+      "top_k": [
+        {
+          "label": "indoor room",
+          "confidence": 0.9847752451896667
+        },
+        {
+          "label": "urban architecture",
+          "confidence": 0.008603930473327637
+        },
+        {
+          "label": "beach ocean",
+          "confidence": 0.0034828325733542442
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "vase",
+          "confidence": 0.930055,
+          "box_xyxy": [
+            226.5,
+            289.23,
+            263.33,
+            354.9
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.853949,
+          "box_xyxy": [
+            282.96,
+            308.6,
+            436.77,
+            468.82
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.845862,
+          "box_xyxy": [
+            720.71,
+            304.43,
+            799.55,
+            490.84
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.842554,
+          "box_xyxy": [
+            627.23,
+            285.18,
+            724.77,
+            445.79
+          ]
+        },
+        {
+          "label": "couch",
+          "confidence": 0.819876,
+          "box_xyxy": [
+            0.22,
+            326.95,
+            263.61,
+            567.66
+          ]
+        },
+        {
+          "label": "potted plant",
+          "confidence": 0.497254,
+          "box_xyxy": [
+            624.66,
+            212.38,
+            676.98,
+            287.54
+          ]
+        },
+        {
+          "label": "potted plant",
+          "confidence": 0.458285,
+          "box_xyxy": [
+            490.29,
+            299.61,
+            519.92,
+            343.96
+          ]
+        },
+        {
+          "label": "potted plant",
+          "confidence": 0.369895,
+          "box_xyxy": [
+            299.66,
+            280.46,
+            339.27,
+            324.46
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.342206,
+          "box_xyxy": [
+            603.45,
+            302.59,
+            635.41,
+            357.71
+          ]
+        },
+        {
+          "label": "potted plant",
+          "confidence": 0.262741,
+          "box_xyxy": [
+            490.44,
+            297.63,
+            530.81,
+            344.46
+          ]
+        }
+      ],
+      "label_counts": {
+        "vase": 1,
+        "chair": 4,
+        "couch": 1,
+        "potted plant": 4
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_small_component_ratio high -> many small organic regions (high fragmentation)"
+  ]
+}

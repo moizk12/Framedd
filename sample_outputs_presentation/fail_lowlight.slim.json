@@ -1,0 +1,27 @@
+{
+  "final_scene": "indoor room",
+  "final_scene_confidence": 0.628257,
+  "subject_summary": "indoor environment / room",
+  "path_a": {
+    "green_coverage_percentage": 0.0,
+    "laplacian_variance": 14.5682,
+    "edge_density_tuned": 0.0,
+    "brightness_mean": 8.7536,
+    "contrast_std": 8.7829,
+    "hist_entropy": 4.363546,
+    "equalize_diff_energy": 125.717508,
+    "green_component_count": 0,
+    "green_small_component_ratio": 0.0
+  },
+  "semantics": {
+    "clip_top3": {
+      "indoor room": 0.6282570362091064,
+      "night city": 0.36436745524406433,
+      "abstract art": 0.0040427264757454395
+    },
+    "yolo_label_counts": {
+      "dining table": 1,
+      "chair": 1
+    }
+  }
+}

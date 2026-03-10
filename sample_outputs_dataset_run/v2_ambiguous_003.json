@@ -1,0 +1,75 @@
+{
+  "final_scene": "beach ocean",
+  "final_scene_confidence": 0.344043,
+  "subject_summary": "natural landscape scene",
+  "organic_integration": "none",
+  "texture_statement": "low texture (laplacian variance low)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.0,
+      "laplacian_variance": 0.4438,
+      "edge_density": 0.0,
+      "brightness_mean": 91.5365,
+      "contrast_std": 22.8241,
+      "hist_entropy": 6.439422,
+      "hist_peakiness": 0.02582083,
+      "equalize_diff_energy": 52.657277,
+      "edge_drop_mean_blur": 0.0,
+      "edge_drop_median_blur": 0.0,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.0,
+      "edge_density_by_sigma": {
+        "1.0": 0.0,
+        "1.5": 0.0,
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "green_component_count": 0,
+      "green_component_areas_top5": [],
+      "green_small_component_ratio": 0.0
+    },
+    "clip": {
+      "primary_scene": "beach ocean",
+      "confidence": 0.344043,
+      "top_k": [
+        {
+          "label": "beach ocean",
+          "confidence": 0.3440430462360382
+        },
+        {
+          "label": "abstract art",
+          "confidence": 0.235536128282547
+        },
+        {
+          "label": "car road",
+          "confidence": 0.19801396131515503
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [],
+      "label_counts": {},
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_coverage_percentage==0.0 -> organic_integration none"
+  ]
+}

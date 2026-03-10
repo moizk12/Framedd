@@ -1,0 +1,99 @@
+{
+  "final_scene": "indoor room",
+  "final_scene_confidence": 0.628257,
+  "subject_summary": "indoor environment / room",
+  "organic_integration": "none",
+  "texture_statement": "low texture (laplacian variance low)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.0,
+      "laplacian_variance": 14.5682,
+      "edge_density": 0.0,
+      "brightness_mean": 8.7536,
+      "contrast_std": 8.7829,
+      "hist_entropy": 4.363546,
+      "hist_peakiness": 0.12346875,
+      "equalize_diff_energy": 125.717508,
+      "edge_drop_mean_blur": 0.0,
+      "edge_drop_median_blur": 0.0,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.0,
+      "edge_density_by_sigma": {
+        "1.0": 0.0,
+        "1.5": 0.0,
+        "2.0": 0.0,
+        "2.5": 0.0,
+        "3.0": 0.0
+      },
+      "green_component_count": 0,
+      "green_component_areas_top5": [],
+      "green_small_component_ratio": 0.0
+    },
+    "clip": {
+      "primary_scene": "indoor room",
+      "confidence": 0.628257,
+      "top_k": [
+        {
+          "label": "indoor room",
+          "confidence": 0.6282570362091064
+        },
+        {
+          "label": "night city",
+          "confidence": 0.36436745524406433
+        },
+        {
+          "label": "abstract art",
+          "confidence": 0.0040427264757454395
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "dining table",
+          "confidence": 0.491325,
+          "box_xyxy": [
+            0.06,
+            342.26,
+            182.36,
+            598.7
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.316898,
+          "box_xyxy": [
+            315.64,
+            309.68,
+            462.22,
+            457.57
+          ]
+        }
+      ],
+      "label_counts": {
+        "dining table": 1,
+        "chair": 1
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_coverage_percentage==0.0 -> organic_integration none"
+  ]
+}

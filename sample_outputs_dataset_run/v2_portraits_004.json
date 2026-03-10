@@ -1,0 +1,89 @@
+{
+  "final_scene": "portrait photo",
+  "final_scene_confidence": 0.997044,
+  "subject_summary": "portrait style photo",
+  "organic_integration": "none",
+  "texture_statement": "low texture (laplacian variance low)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.0,
+      "laplacian_variance": 33.2771,
+      "edge_density": 0.008433,
+      "brightness_mean": 132.9357,
+      "contrast_std": 51.0072,
+      "hist_entropy": 6.552238,
+      "hist_peakiness": 0.03064167,
+      "equalize_diff_energy": 31.634185,
+      "edge_drop_mean_blur": 0.003131,
+      "edge_drop_median_blur": 0.001479,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.004515,
+      "edge_density_by_sigma": {
+        "1.0": 0.004515,
+        "1.5": 0.003402,
+        "2.0": 0.002806,
+        "2.5": 0.000794,
+        "3.0": 0.0
+      },
+      "green_component_count": 0,
+      "green_component_areas_top5": [],
+      "green_small_component_ratio": 0.0
+    },
+    "clip": {
+      "primary_scene": "portrait photo",
+      "confidence": 0.997044,
+      "top_k": [
+        {
+          "label": "portrait photo",
+          "confidence": 0.997044026851654
+        },
+        {
+          "label": "night city",
+          "confidence": 0.0016043114010244608
+        },
+        {
+          "label": "abstract art",
+          "confidence": 0.0007235488737933338
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "person",
+          "confidence": 0.882776,
+          "box_xyxy": [
+            34.03,
+            0.0,
+            788.25,
+            598.8
+          ]
+        }
+      ],
+      "label_counts": {
+        "person": 1
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_coverage_percentage==0.0 -> organic_integration none",
+    "yolo: person detected"
+  ]
+}

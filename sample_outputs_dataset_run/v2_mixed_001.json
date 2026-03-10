@@ -1,0 +1,178 @@
+{
+  "final_scene": "beach ocean",
+  "final_scene_confidence": 0.92806,
+  "subject_summary": "natural landscape scene",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.001,
+      "laplacian_variance": 488.4137,
+      "edge_density": 0.046606,
+      "brightness_mean": 114.3498,
+      "contrast_std": 66.591,
+      "hist_entropy": 7.547696,
+      "hist_peakiness": 0.01261875,
+      "equalize_diff_energy": 15.9923,
+      "edge_drop_mean_blur": 0.02376,
+      "edge_drop_median_blur": 0.016529,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.020275,
+      "edge_density_by_sigma": {
+        "1.0": 0.020275,
+        "1.5": 0.01489,
+        "2.0": 0.011985,
+        "2.5": 0.008313,
+        "3.0": 0.001971
+      },
+      "green_component_count": 0,
+      "green_component_areas_top5": [],
+      "green_small_component_ratio": 0.0
+    },
+    "clip": {
+      "primary_scene": "beach ocean",
+      "confidence": 0.92806,
+      "top_k": [
+        {
+          "label": "beach ocean",
+          "confidence": 0.9280595779418945
+        },
+        {
+          "label": "portrait photo",
+          "confidence": 0.042742758989334106
+        },
+        {
+          "label": "abstract art",
+          "confidence": 0.006960323546081781
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "person",
+          "confidence": 0.897303,
+          "box_xyxy": [
+            589.79,
+            344.18,
+            660.44,
+            533.71
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.893554,
+          "box_xyxy": [
+            251.11,
+            340.06,
+            327.72,
+            533.03
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.891066,
+          "box_xyxy": [
+            679.24,
+            357.27,
+            768.4,
+            537.0
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.861612,
+          "box_xyxy": [
+            190.32,
+            353.75,
+            263.83,
+            532.65
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.854791,
+          "box_xyxy": [
+            105.76,
+            346.1,
+            192.78,
+            527.91
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.849875,
+          "box_xyxy": [
+            330.49,
+            355.82,
+            387.74,
+            532.18
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.843605,
+          "box_xyxy": [
+            27.26,
+            328.17,
+            112.61,
+            527.45
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.829816,
+          "box_xyxy": [
+            420.92,
+            337.95,
+            472.73,
+            531.97
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.817845,
+          "box_xyxy": [
+            767.8,
+            402.66,
+            799.93,
+            537.91
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.81634,
+          "box_xyxy": [
+            379.46,
+            347.17,
+            429.52,
+            532.37
+          ]
+        }
+      ],
+      "label_counts": {
+        "person": 10
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "yolo: person detected"
+  ]
+}

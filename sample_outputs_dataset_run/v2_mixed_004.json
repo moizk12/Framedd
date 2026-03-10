@@ -1,0 +1,190 @@
+{
+  "final_scene": "portrait photo",
+  "final_scene_confidence": 0.446396,
+  "subject_summary": "portrait style photo",
+  "organic_integration": "some",
+  "texture_statement": "medium texture",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 3.0179,
+      "laplacian_variance": 360.7166,
+      "edge_density": 0.049125,
+      "brightness_mean": 83.7851,
+      "contrast_std": 54.9698,
+      "hist_entropy": 7.524788,
+      "hist_peakiness": 0.01862292,
+      "equalize_diff_energy": 44.450371,
+      "edge_drop_mean_blur": 0.018098,
+      "edge_drop_median_blur": 0.009569,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.027563,
+      "edge_density_by_sigma": {
+        "1.0": 0.027563,
+        "1.5": 0.016054,
+        "2.0": 0.010171,
+        "2.5": 0.005546,
+        "3.0": 0.001725
+      },
+      "green_component_count": 48,
+      "green_component_areas_top5": [
+        4440,
+        2113,
+        1721,
+        710,
+        599
+      ],
+      "green_small_component_ratio": 0.875
+    },
+    "clip": {
+      "primary_scene": "portrait photo",
+      "confidence": 0.446396,
+      "top_k": [
+        {
+          "label": "portrait photo",
+          "confidence": 0.4463956356048584
+        },
+        {
+          "label": "indoor room",
+          "confidence": 0.3960840106010437
+        },
+        {
+          "label": "street scene",
+          "confidence": 0.0842813029885292
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "laptop",
+          "confidence": 0.898843,
+          "box_xyxy": [
+            469.48,
+            312.49,
+            697.64,
+            460.33
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.893338,
+          "box_xyxy": [
+            315.26,
+            92.85,
+            552.78,
+            349.84
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.888242,
+          "box_xyxy": [
+            0.56,
+            125.57,
+            269.88,
+            599.07
+          ]
+        },
+        {
+          "label": "laptop",
+          "confidence": 0.865174,
+          "box_xyxy": [
+            219.92,
+            262.69,
+            358.54,
+            428.44
+          ]
+        },
+        {
+          "label": "dining table",
+          "confidence": 0.634022,
+          "box_xyxy": [
+            219.69,
+            346.68,
+            798.87,
+            596.61
+          ]
+        },
+        {
+          "label": "cup",
+          "confidence": 0.630585,
+          "box_xyxy": [
+            145.0,
+            319.94,
+            196.59,
+            397.96
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.619961,
+          "box_xyxy": [
+            559.05,
+            102.4,
+            799.76,
+            427.15
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.616056,
+          "box_xyxy": [
+            558.54,
+            101.66,
+            799.95,
+            584.61
+          ]
+        },
+        {
+          "label": "cup",
+          "confidence": 0.600192,
+          "box_xyxy": [
+            145.03,
+            320.44,
+            196.47,
+            371.98
+          ]
+        },
+        {
+          "label": "chair",
+          "confidence": 0.572178,
+          "box_xyxy": [
+            115.92,
+            525.29,
+            290.71,
+            599.77
+          ]
+        }
+      ],
+      "label_counts": {
+        "laptop": 2,
+        "person": 4,
+        "dining table": 1,
+        "cup": 2,
+        "chair": 1
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_component_count high -> fragmented organic regions / clutter signal",
+    "rule: green_small_component_ratio high -> many small organic regions (high fragmentation)",
+    "yolo: person detected"
+  ]
+}
