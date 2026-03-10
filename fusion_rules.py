@@ -21,6 +21,8 @@ def fuse_report(path_a: Dict[str, Any], clip: Dict[str, Any], yolo: Dict[str, An
 
     green_pct = float(path_a.get("green_coverage_percentage", 0.0))
     lap_var = float(path_a.get("laplacian_variance", 0.0))
+    bright = float(path_a.get("brightness_mean", 0.0))
+    contrast = float(path_a.get("contrast_std", 0.0))
     # prefer tuned edge density (HW5), but keep fallback for backward compatibility
     edge_dens = float(path_a.get("edge_density_tuned", path_a.get("edge_density", 0.0)))
     if "edge_density_tuned" in path_a:
@@ -37,6 +39,12 @@ def fuse_report(path_a: Dict[str, Any], clip: Dict[str, Any], yolo: Dict[str, An
     is_low_texture = lap_var <= 120.0
     is_edge_heavy = edge_dens >= 0.12
     has_green = green_pct >= 5.0
+
+    # subject presence (YOLO)
+    has_person = _has_yolo_label(yolo, "person")
+    has_car = _has_yolo_label(yolo, "car")
+    has_building = _has_yolo_label(yolo, "building")
+    subject_present = has_person or has_car or has_building
 
     # HW4/HW7 clutter / fragmentation notes (green mask spatial structure)
     if green_comp_count >= 25:
@@ -55,12 +63,15 @@ def fuse_report(path_a: Dict[str, Any], clip: Dict[str, Any], yolo: Dict[str, An
     subject_summary = "not sure"
 
     # YOLO overrides for "object exists"
-    if _has_yolo_label(yolo, "person"):
+    if has_person:
         notes.append("yolo: person detected")
-    if _has_yolo_label(yolo, "car"):
+    if has_car:
         notes.append("yolo: car detected")
-    if _has_yolo_label(yolo, "building"):
+    if has_building:
         notes.append("yolo: building detected")
+
+    # track conflicts between semantics and pixels
+    conflict_flag = False
 
     # fusion logic
     if scene == "urban architecture":
@@ -73,6 +84,7 @@ def fuse_report(path_a: Dict[str, Any], clip: Dict[str, Any], yolo: Dict[str, An
         if green_pct == 0.0 and scene in ["forest greenery"]:
             subject_summary = "semantic says forest but pixel green is none (prob fail case)"
             notes.append("rule: forest label but green==0 -> conflict")
+            conflict_flag = True
         else:
             subject_summary = "natural landscape scene"
     elif scene == "indoor room":
@@ -94,8 +106,29 @@ def fuse_report(path_a: Dict[str, Any], clip: Dict[str, Any], yolo: Dict[str, An
 
     # final scene label (we mostly trust clip for this, but we log conflict)
     final_scene = scene
-    if scene == "mountain landscape" and (_has_yolo_label(yolo, "building") or _has_yolo_label(yolo, "car")):
+    if scene == "mountain landscape" and (has_building or has_car):
         notes.append("rule: clip says mountain but yolo sees man-made obj")
+        conflict_flag = True
+
+    # Hard quality grade
+    quality_grade = "REVIEW"
+    if lap_var < 150.0 or bright < 20.0:
+        quality_grade = "REJECT"
+        if lap_var < 150.0:
+            notes.append("rule: quality_grade REJECT (very low laplacian_variance)")
+        if bright < 20.0:
+            notes.append("rule: quality_grade REJECT (very low brightness_mean)")
+    else:
+        high_sharp = lap_var >= 400.0
+        good_contrast = contrast >= 25.0
+        if high_sharp and good_contrast and subject_present:
+            quality_grade = "PASS"
+            notes.append("rule: quality_grade PASS (sharp, good contrast, clear subject)")
+
+    # downgrade PASS to REVIEW if we saw a semantic vs pixel conflict
+    if conflict_flag and quality_grade == "PASS":
+        quality_grade = "REVIEW"
+        notes.append("rule: quality_grade REVIEW (semantic vs pixel conflict)")
 
     out = {
         "final_scene": final_scene,
@@ -103,6 +136,7 @@ def fuse_report(path_a: Dict[str, Any], clip: Dict[str, Any], yolo: Dict[str, An
         "subject_summary": subject_summary,
         "organic_integration": organic_integration,
         "texture_statement": texture_statement,
+        "quality_grade": quality_grade,
         "raw": {
             "path_a_metrics": path_a,
             "clip": clip,

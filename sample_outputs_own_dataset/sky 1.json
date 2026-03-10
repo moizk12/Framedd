@@ -1,0 +1,151 @@
+{
+  "final_scene": "street scene",
+  "final_scene_confidence": 0.439106,
+  "subject_summary": "street / outdoor public space",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "quality_grade": "PASS",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.1929,
+      "laplacian_variance": 446.7244,
+      "edge_density": 0.063918,
+      "brightness_mean": 59.7249,
+      "contrast_std": 60.6104,
+      "hist_entropy": 7.141351,
+      "hist_peakiness": 0.01915907,
+      "equalize_diff_energy": 68.79242,
+      "edge_drop_mean_blur": 0.03287,
+      "edge_drop_median_blur": 0.024051,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.027288,
+      "edge_density_by_sigma": {
+        "1.0": 0.027288,
+        "1.5": 0.014569,
+        "2.0": 0.009321,
+        "2.5": 0.00569,
+        "3.0": 0.003081
+      },
+      "green_component_count": 6,
+      "green_component_areas_top5": [
+        623,
+        342,
+        257,
+        128,
+        74
+      ],
+      "green_small_component_ratio": 1.0
+    },
+    "clip": {
+      "primary_scene": "street scene",
+      "confidence": 0.439106,
+      "top_k": [
+        {
+          "label": "street scene",
+          "confidence": 0.4391063153743744
+        },
+        {
+          "label": "night city",
+          "confidence": 0.2842295467853546
+        },
+        {
+          "label": "urban architecture",
+          "confidence": 0.19639772176742554
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "car",
+          "confidence": 0.705458,
+          "box_xyxy": [
+            4.84,
+            1072.72,
+            588.97,
+            1278.5
+          ]
+        },
+        {
+          "label": "car",
+          "confidence": 0.426386,
+          "box_xyxy": [
+            87.69,
+            1051.89,
+            246.84,
+            1105.41
+          ]
+        },
+        {
+          "label": "car",
+          "confidence": 0.368911,
+          "box_xyxy": [
+            530.94,
+            1012.6,
+            584.09,
+            1051.8
+          ]
+        },
+        {
+          "label": "car",
+          "confidence": 0.350263,
+          "box_xyxy": [
+            107.36,
+            1050.66,
+            245.54,
+            1084.73
+          ]
+        },
+        {
+          "label": "car",
+          "confidence": 0.300325,
+          "box_xyxy": [
+            674.4,
+            1010.16,
+            718.63,
+            1040.46
+          ]
+        },
+        {
+          "label": "car",
+          "confidence": 0.279021,
+          "box_xyxy": [
+            423.09,
+            1010.13,
+            453.97,
+            1041.73
+          ]
+        }
+      ],
+      "label_counts": {
+        "car": 6
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    },
+    "timing": {
+      "path_a_seconds": 0.19608,
+      "path_b_seconds": 6.090524
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_small_component_ratio high -> many small organic regions (high fragmentation)",
+    "yolo: car detected",
+    "rule: quality_grade PASS (sharp, good contrast, clear subject)"
+  ]
+}

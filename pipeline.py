@@ -1,8 +1,15 @@
 import argparse
 import json
 import os
+import csv
+import time
 
-from vision_utils import compute_path_a_metrics
+from vision_utils import (
+    compute_path_a_metrics,
+    load_bgr,
+    save_debug_masks,
+    draw_hud_overlay,
+)
 from semantics_utils import classify_clip
 from yolo_utils import run_yolo
 from fusion_rules import fuse_report
@@ -54,17 +61,28 @@ def make_slim_report(report: dict) -> dict:
 
 
 def run_one(image_path: str, out_dir: str, topk_clip: int = 3, write_slim: bool = True):
-    # Path A
+    # Path A (timed)
+    t0 = time.time()
     path_a = compute_path_a_metrics(image_path)
+    tA = time.time() - t0
 
-    # Path B - CLIP
+    # Path B - CLIP + YOLO (timed together)
+    t1 = time.time()
     clip = classify_clip(image_path, labels=None, topk=topk_clip)
-
-    # Path B - YOLO
     yolo = run_yolo(image_path, conf_thres=0.25, max_det=10)
+    tB = time.time() - t1
 
     # Fusion
     report = fuse_report(path_a=path_a, clip=clip, yolo=yolo)
+
+    # attach timing info under raw
+    timing = {
+        "path_a_seconds": round(float(tA), 6),
+        "path_b_seconds": round(float(tB), 6),
+    }
+    raw = report.get("raw") or {}
+    raw["timing"] = timing
+    report["raw"] = raw
 
     # output file name
     base = os.path.splitext(os.path.basename(image_path))[0]
@@ -79,10 +97,33 @@ def run_one(image_path: str, out_dir: str, topk_clip: int = 3, write_slim: bool 
         with open(slim_path, "w", encoding="utf-8") as f:
             json.dump(slim, f, indent=2)
 
+    # save masks + HUD
+    bgr = load_bgr(image_path)
+    if bgr is not None:
+        base_out = os.path.join(out_dir, base)
+        save_debug_masks(bgr, base_out)
+        grade = str(report.get("quality_grade", "REVIEW"))
+        draw_hud_overlay(
+            bgr,
+            path_a={**path_a, "_subject_summary": report.get("subject_summary", "not sure")},
+            clip=clip,
+            yolo=yolo,
+            quality_grade=grade,
+            out_path=base_out + "_HUD.jpg",
+        )
+
     # tiny print (not spam)
     print(f"done: {image_path}")
     print(f" -> {out_path}")
-    print(f"scene={report.get('final_scene')}  green={path_a.get('green_coverage_percentage')}  lap={path_a.get('laplacian_variance')}")
+    print(
+        f"scene={report.get('final_scene')}  "
+        f"grade={report.get('quality_grade')}  "
+        f"green={path_a.get('green_coverage_percentage')}  "
+        f"lap={path_a.get('laplacian_variance')}  "
+        f"timeA={timing['path_a_seconds']:.4f}s  timeB={timing['path_b_seconds']:.4f}s"
+    )
+
+    return report
 
 
 def main():
@@ -112,8 +153,57 @@ def main():
         if not files:
             raise RuntimeError("no image files found in input_dir")
 
+        rows = []
         for p in files:
-            run_one(p, out_dir=args.out_dir, topk_clip=args.clip_topk, write_slim=not args.no_slim)
+            report = run_one(p, out_dir=args.out_dir, topk_clip=args.clip_topk, write_slim=not args.no_slim)
+            base = os.path.basename(p)
+            qa = report.get("quality_grade", "REVIEW")
+            scene = report.get("final_scene", "unknown")
+            pa = (report.get("raw") or {}).get("path_a_metrics", {}) or {}
+            lap = pa.get("laplacian_variance", 0.0)
+            edge = pa.get("edge_density_tuned", pa.get("edge_density", 0.0))
+            yolo = (report.get("raw") or {}).get("yolo", {}) or {}
+            counts = yolo.get("label_counts", {}) or {}
+            if counts:
+                # pick the most common label (HW-style simple loop)
+                primary_label = None
+                primary_count = -1
+                for lab, cnt in counts.items():
+                    if cnt > primary_count:
+                        primary_label = lab
+                        primary_count = cnt
+            else:
+                primary_label = "none"
+
+            rows.append(
+                {
+                    "filename": base,
+                    "quality_grade": qa,
+                    "scene": scene,
+                    "laplacian_variance": lap,
+                    "edge_density_tuned": edge,
+                    "primary_subject": primary_label,
+                }
+            )
+
+        # write simple CSV report
+        csv_path = os.path.join(args.out_dir, "master_culling_report.csv")
+        with open(csv_path, "w", newline="", encoding="utf-8") as f:
+            w = csv.writer(f)
+            w.writerow(["filename", "quality_grade", "scene", "laplacian_variance", "edge_density_tuned", "primary_subject"])
+            for r in rows:
+                w.writerow(
+                    [
+                        r["filename"],
+                        r["quality_grade"],
+                        r["scene"],
+                        r["laplacian_variance"],
+                        r["edge_density_tuned"],
+                        r["primary_subject"],
+                    ]
+                )
+
+        print(f"wrote CSV report: {csv_path}")
         return
 
     raise RuntimeError("pass --image or --input_dir")

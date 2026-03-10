@@ -236,3 +236,208 @@ def compute_path_a_metrics(image_path: str):
         raise FileNotFoundError(f"cant read image: {image_path}")
     return compute_path_a_metrics_from_bgr(bgr)
 
+
+def save_debug_masks(bgr: np.ndarray, out_base_path: str):
+    """
+    Save simple debug views:
+    - green HSV mask
+    - Canny edge map on grayscale
+    Files are named:
+      out_base_path + "_green_mask.png"
+      out_base_path + "_edges.png"
+    """
+    # green mask
+    _, green_mask = green_coverage_hsv(bgr)
+    cv2.imwrite(out_base_path + "_green_mask.png", green_mask)
+
+    # edges on gray
+    gray = _to_gray_u8(bgr)
+    _, edges = edge_density_canny_gray(gray)
+    cv2.imwrite(out_base_path + "_edges.png", edges)
+
+
+def draw_hud_overlay(
+    bgr: np.ndarray,
+    path_a: dict,
+    clip: dict,
+    yolo: dict,
+    quality_grade: str,
+    out_path: str,
+):
+    """
+    Very simple HUD:
+    - Translucent sidebar for text
+    - YOLO boxes in bright green
+    - Telemetry text inside sidebar
+    """
+    if bgr is None:
+        return
+
+    img = bgr.copy()
+    h, w = img.shape[:2]
+
+    # ---- translucent sidebar on the left ----
+    overlay = img.copy()
+    sidebar_width = int(0.32 * w)
+    cv2.rectangle(
+        overlay,
+        (0, 0),
+        (sidebar_width, h),
+        (0, 0, 0),
+        thickness=-1,
+    )
+    # blend overlay and original
+    img = cv2.addWeighted(overlay, 0.6, img, 0.4, 0)
+
+    # ---- YOLO boxes (bright green) ----
+    dets = (yolo or {}).get("detections", []) or []
+    for det in dets:
+        box = det.get("box_xyxy", None)
+        label = str(det.get("label", "obj"))
+        if not box or len(box) != 4:
+            continue
+        x1, y1, x2, y2 = box
+        pt1 = (int(x1), int(y1))
+        pt2 = (int(x2), int(y2))
+        cv2.rectangle(img, pt1, pt2, (0, 255, 0), 2)
+        cv2.putText(
+            img,
+            label,
+            (pt1[0], max(0, pt1[1] - 5)),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.5,
+            (0, 255, 0),
+            1,
+            cv2.LINE_AA,
+        )
+
+    # ---- telemetry text inside sidebar ----
+    scene = str((clip or {}).get("primary_scene", "unknown"))
+    subject_summary = "not sure"
+    # subject_summary is filled by fusion and passed via report, but in HUD we only see path_a/clip/yolo.
+    # To keep things simple and close to your plan, we let the caller pass a subject_summary in path_a if desired.
+    subject_summary = str(path_a.get("_subject_summary", "not sure"))
+
+    lap = float(path_a.get("laplacian_variance", 0.0) or 0.0)
+    edge_tuned = float(path_a.get("edge_density_tuned", path_a.get("edge_density", 0.0)) or 0.0)
+    green_pct = float(path_a.get("green_coverage_percentage", 0.0) or 0.0)
+
+    grade = str(quality_grade or "REVIEW").upper()
+    if grade == "PASS":
+        grade_color = (0, 255, 0)
+    elif grade == "REJECT":
+        grade_color = (0, 0, 255)
+    else:
+        grade_color = (0, 255, 255)  # REVIEW -> yellow
+
+    x0 = 10
+    y0 = 30
+    dy = 25
+
+    # QUALITY GRADE
+    cv2.putText(
+        img,
+        f"QUALITY: {grade}",
+        (x0, y0),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.7,
+        grade_color,
+        2,
+        cv2.LINE_AA,
+    )
+    y0 += dy
+
+    # SCENE
+    cv2.putText(
+        img,
+        f"SCENE: {scene}",
+        (x0, y0),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.6,
+        (255, 255, 255),
+        1,
+        cv2.LINE_AA,
+    )
+    y0 += dy
+
+    # SUBJECT
+    cv2.putText(
+        img,
+        f"SUBJECT: {subject_summary}",
+        (x0, y0),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.6,
+        (255, 255, 255),
+        1,
+        cv2.LINE_AA,
+    )
+    y0 += dy
+
+    # SHARPNESS
+    cv2.putText(
+        img,
+        f"SHARPNESS: {lap:.1f}",
+        (x0, y0),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.6,
+        (255, 255, 255),
+        1,
+        cv2.LINE_AA,
+    )
+    y0 += dy
+
+    # ORGANIC %
+    cv2.putText(
+        img,
+        f"ORGANIC %: {green_pct:.2f}",
+        (x0, y0),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.6,
+        (255, 255, 255),
+        1,
+        cv2.LINE_AA,
+    )
+
+    # For completeness, also show edge density line
+    y0 += dy
+    cv2.putText(
+        img,
+        f"EDGE DENS: {edge_tuned:.3f}",
+        (x0, y0),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.6,
+        (255, 255, 255),
+        1,
+        cv2.LINE_AA,
+    )
+
+    # Quality grade is already shown at top of sidebar
+    # Save HUD (uppercase HUD in filename is handled by caller)
+    cv2.imwrite(out_path, img)
+
+    grade = str(quality_grade or "REVIEW").upper()
+    if grade == "PASS":
+        color = (0, 255, 0)
+    elif grade == "REJECT":
+        color = (0, 0, 255)
+    else:
+        color = (0, 255, 255)  # REVIEW -> yellow
+
+    grade_text = f"QUALITY: {grade}"
+    # simple right align: estimate text width
+    (tw, th), _ = cv2.getTextSize(grade_text, cv2.FONT_HERSHEY_SIMPLEX, 0.8, 2)
+    x = max(10, w - tw - 10)
+    y = h - 15
+    cv2.putText(
+        img,
+        grade_text,
+        (x, y),
+        cv2.FONT_HERSHEY_SIMPLEX,
+        0.8,
+        color,
+        2,
+        cv2.LINE_AA,
+    )
+
+    cv2.imwrite(out_path, img)
+

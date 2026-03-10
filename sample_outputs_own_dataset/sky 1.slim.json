@@ -1,0 +1,26 @@
+{
+  "final_scene": "street scene",
+  "final_scene_confidence": 0.439106,
+  "subject_summary": "street / outdoor public space",
+  "path_a": {
+    "green_coverage_percentage": 0.1929,
+    "laplacian_variance": 446.7244,
+    "edge_density_tuned": 0.027288,
+    "brightness_mean": 59.7249,
+    "contrast_std": 60.6104,
+    "hist_entropy": 7.141351,
+    "equalize_diff_energy": 68.79242,
+    "green_component_count": 6,
+    "green_small_component_ratio": 1.0
+  },
+  "semantics": {
+    "clip_top3": {
+      "street scene": 0.4391063153743744,
+      "night city": 0.2842295467853546,
+      "urban architecture": 0.19639772176742554
+    },
+    "yolo_label_counts": {
+      "car": 6
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "final_scene": "urban architecture",
+  "final_scene_confidence": 0.875014,
+  "subject_summary": "highly textured manufactured structure",
+  "path_a": {
+    "green_coverage_percentage": 0.0071,
+    "laplacian_variance": 763.3183,
+    "edge_density_tuned": 0.028658,
+    "brightness_mean": 135.3698,
+    "contrast_std": 63.6845,
+    "hist_entropy": 7.361748,
+    "equalize_diff_energy": 20.85053,
+    "green_component_count": 0,
+    "green_small_component_ratio": 0.0
+  },
+  "semantics": {
+    "clip_top3": {
+      "urban architecture": 0.8750143051147461,
+      "street scene": 0.04078112170100212,
+      "car road": 0.029216138646006584
+    },
+    "yolo_label_counts": {
+      "train": 1
+    }
+  }
+}

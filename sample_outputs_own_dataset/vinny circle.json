@@ -1,0 +1,193 @@
+{
+  "final_scene": "urban architecture",
+  "final_scene_confidence": 0.514665,
+  "subject_summary": "highly textured manufactured structure",
+  "organic_integration": "present",
+  "texture_statement": "high texture (laplacian variance high)",
+  "quality_grade": "PASS",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 23.7082,
+      "laplacian_variance": 2461.0811,
+      "edge_density": 0.204428,
+      "brightness_mean": 90.0061,
+      "contrast_std": 56.7469,
+      "hist_entropy": 7.67694,
+      "hist_peakiness": 0.009006,
+      "equalize_diff_energy": 38.820199,
+      "edge_drop_mean_blur": 0.06592,
+      "edge_drop_median_blur": 0.053027,
+      "canny_sigma_chosen": 1.5,
+      "edge_density_tuned": 0.068478,
+      "edge_density_by_sigma": {
+        "1.0": 0.124354,
+        "1.5": 0.068478,
+        "2.0": 0.027152,
+        "2.5": 0.007142,
+        "3.0": 0.001004
+      },
+      "green_component_count": 142,
+      "green_component_areas_top5": [
+        247501,
+        5098,
+        3528,
+        1878,
+        1439
+      ],
+      "green_small_component_ratio": 0.950704
+    },
+    "clip": {
+      "primary_scene": "urban architecture",
+      "confidence": 0.514665,
+      "top_k": [
+        {
+          "label": "urban architecture",
+          "confidence": 0.5146652460098267
+        },
+        {
+          "label": "street scene",
+          "confidence": 0.4470764398574829
+        },
+        {
+          "label": "forest greenery",
+          "confidence": 0.012442807666957378
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "person",
+          "confidence": 0.846161,
+          "box_xyxy": [
+            351.51,
+            1009.11,
+            704.95,
+            1279.27
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.720221,
+          "box_xyxy": [
+            204.22,
+            853.77,
+            275.16,
+            1013.25
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.636335,
+          "box_xyxy": [
+            141.92,
+            863.94,
+            203.64,
+            1025.88
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.627293,
+          "box_xyxy": [
+            537.7,
+            826.21,
+            599.77,
+            977.53
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.597671,
+          "box_xyxy": [
+            66.16,
+            884.87,
+            145.41,
+            1021.18
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.596383,
+          "box_xyxy": [
+            380.04,
+            863.02,
+            435.87,
+            987.71
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.570635,
+          "box_xyxy": [
+            436.72,
+            855.61,
+            495.94,
+            988.15
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.505489,
+          "box_xyxy": [
+            490.18,
+            830.15,
+            539.18,
+            988.2
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.389479,
+          "box_xyxy": [
+            3.26,
+            815.54,
+            60.26,
+            934.36
+          ]
+        },
+        {
+          "label": "person",
+          "confidence": 0.384638,
+          "box_xyxy": [
+            267.29,
+            864.27,
+            324.9,
+            1001.03
+          ]
+        }
+      ],
+      "label_counts": {
+        "person": 10
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    },
+    "timing": {
+      "path_a_seconds": 0.19192,
+      "path_b_seconds": 5.038883
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_component_count high -> fragmented organic regions / clutter signal",
+    "rule: green_small_component_ratio high -> many small organic regions (high fragmentation)",
+    "yolo: person detected",
+    "rule: urban architecture + high texture/edges",
+    "rule: quality_grade PASS (sharp, good contrast, clear subject)"
+  ]
+}

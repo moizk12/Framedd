@@ -1,0 +1,100 @@
+{
+  "final_scene": "urban architecture",
+  "final_scene_confidence": 0.906935,
+  "subject_summary": "highly textured manufactured structure",
+  "organic_integration": "some",
+  "texture_statement": "high texture (laplacian variance high)",
+  "quality_grade": "REVIEW",
+  "raw": {
+    "path_a_metrics": {
+      "green_coverage_percentage": 0.1434,
+      "laplacian_variance": 1867.8781,
+      "edge_density": 0.119568,
+      "brightness_mean": 147.694,
+      "contrast_std": 61.6567,
+      "hist_entropy": 7.536302,
+      "hist_peakiness": 0.01880968,
+      "equalize_diff_energy": 29.024449,
+      "edge_drop_mean_blur": 0.035998,
+      "edge_drop_median_blur": 0.028025,
+      "canny_sigma_chosen": 1.0,
+      "edge_density_tuned": 0.077469,
+      "edge_density_by_sigma": {
+        "1.0": 0.077469,
+        "1.5": 0.047661,
+        "2.0": 0.025699,
+        "2.5": 0.008586,
+        "3.0": 0.003174
+      },
+      "green_component_count": 5,
+      "green_component_areas_top5": [
+        632,
+        336,
+        160,
+        28,
+        26
+      ],
+      "green_small_component_ratio": 1.0
+    },
+    "clip": {
+      "primary_scene": "urban architecture",
+      "confidence": 0.906935,
+      "top_k": [
+        {
+          "label": "urban architecture",
+          "confidence": 0.9069352746009827
+        },
+        {
+          "label": "street scene",
+          "confidence": 0.061066318303346634
+        },
+        {
+          "label": "portrait photo",
+          "confidence": 0.013923956081271172
+        }
+      ],
+      "labels_used": [
+        "urban architecture",
+        "street scene",
+        "indoor room",
+        "mountain landscape",
+        "forest greenery",
+        "beach ocean",
+        "portrait photo",
+        "night city",
+        "car road",
+        "abstract art"
+      ],
+      "device": "cpu"
+    },
+    "yolo": {
+      "detections": [
+        {
+          "label": "clock",
+          "confidence": 0.614186,
+          "box_xyxy": [
+            217.43,
+            540.45,
+            428.91,
+            742.83
+          ]
+        }
+      ],
+      "label_counts": {
+        "clock": 1
+      },
+      "model": "yolov8n.pt",
+      "conf_thres": 0.25,
+      "max_det": 10
+    },
+    "timing": {
+      "path_a_seconds": 0.176308,
+      "path_b_seconds": 6.276632
+    }
+  },
+  "notes": [
+    "metric: using edge_density_tuned (HW5 tuned canny)",
+    "rule: green_small_component_ratio high -> many small organic regions (high fragmentation)",
+    "rule: urban architecture + high texture/edges"
+  ]
+}

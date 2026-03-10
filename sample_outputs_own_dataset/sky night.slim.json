@@ -1,0 +1,24 @@
+{
+  "final_scene": "night city",
+  "final_scene_confidence": 0.996256,
+  "subject_summary": "nighttime city scene",
+  "path_a": {
+    "green_coverage_percentage": 0.2208,
+    "laplacian_variance": 235.073,
+    "edge_density_tuned": 0.008635,
+    "brightness_mean": 15.4464,
+    "contrast_std": 19.939,
+    "hist_entropy": 5.081628,
+    "equalize_diff_energy": 116.589374,
+    "green_component_count": 11,
+    "green_small_component_ratio": 1.0
+  },
+  "semantics": {
+    "clip_top3": {
+      "night city": 0.9962563514709473,
+      "urban architecture": 0.0023393298033624887,
+      "mountain landscape": 0.0005312893190421164
+    },
+    "yolo_label_counts": {}
+  }
+}

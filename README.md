@@ -35,6 +35,21 @@ Run a folder:
 python moiz_kashif_csc481_final/pipeline.py --input_dir moiz_kashif_csc481_final/dataset/success_cases --out_dir moiz_kashif_csc481_final/sample_outputs
 ```
 
+### Extra outputs for presentation
+
+For each image, the pipeline writes:
+
+- `*.json` – full report (Path A metrics, CLIP, YOLO, quality_grade, timing)
+- `*.slim.json` – compact slide-friendly summary
+- `*_green_mask.png` – HSV green mask (vegetation pixels)
+- `*_edges.png` – Canny edge map (structure)
+- `*_hud.jpg` – visual HUD overlay (YOLO boxes, CLIP scene, LapVar/edges, PASS/REVIEW/REJECT)
+
+When running on a folder (`--input_dir`), a simple CSV is also written:
+
+- `master_culling_report.csv` in the `out_dir`, with columns:
+  - `filename`, `quality_grade`, `scene`, `laplacian_variance`, `edge_density_tuned`, `primary_subject`
+
 ### Auto-tests (HW-style rubric)
 
 Run the deterministic CV-only tests (fast, no model downloads):
