@@ -1,0 +1,15 @@
+{
+  "categories": {
+    "architecture": 5,
+    "interiors": 4,
+    "street": 5,
+    "nature": 5,
+    "portraits": 5,
+    "ambiguous": 4,
+    "mixed": 4,
+    "artistic": 4
+  },
+  "total": 36,
+  "source": "unsplash.com (curated, category-matched)",
+  "version": "v2"
+}
